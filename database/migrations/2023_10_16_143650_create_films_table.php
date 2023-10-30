@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('resume');
             $table->unsignedBigInteger('duration');
             $table->date('release_date');
-            $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('price')->max(25);
             $table->string('image');
             $table->string('video');
+            $table->unsignedInteger('like_user_id');
+
             $table->timestamps();
         });
     }
