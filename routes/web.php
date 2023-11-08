@@ -1,7 +1,10 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Film;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +34,6 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('films', FilmController::class);
-
+Route::get('films/favourites', [FilmController::class, 'favoruite']);
 
 require __DIR__.'/auth.php';

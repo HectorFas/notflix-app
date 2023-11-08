@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_like', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('film_id')->references('id')->on('films'); 
             $table->timestamps();
         });
     }

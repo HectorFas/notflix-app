@@ -65,4 +65,12 @@ class FilmController extends Controller
     {
         //
     }
+
+    public function favourite() {
+        $user = session()->get('user');
+
+        $favoruiteFilms = $user->films;
+
+        return view('films.favourite')->with('favouriteFilms', $favoruiteFilms);
+    }
 }
