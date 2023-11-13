@@ -34,6 +34,6 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('films', FilmController::class);
-Route::get('films/favourites', [FilmController::class, 'favoruite']);
+Route::get('/films/favourite', [FilmController::class, 'favoruite'])->name('fav');
 
 require __DIR__.'/auth.php';
