@@ -7,7 +7,6 @@
                 <p>{{$film->title}}</p>
                 <img src={{$film->image}} width=100/>
                 <livewire:counter :filmid="$film->id"/>
-
             </div>
 
         @empty
