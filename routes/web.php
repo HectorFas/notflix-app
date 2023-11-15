@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/fav', function () {
+    return "favorurrrrites";
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -33,7 +37,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/films/favourite', [FilmController::class, 'favourite'])->name('films.favourite');
+Route::get('/films/ponerfav/{filmid}', [FilmController::class, 'ponerfav'])->name('films.ponerfav');
 Route::resource('films', FilmController::class);
-Route::get('/films/favourite', [FilmController::class, 'favoruite'])->name('fav');
 
 require __DIR__.'/auth.php';

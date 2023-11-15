@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
     public function films() {
-        return $this->hasMany(Film::class);
+        return $this->belongsToMany(Film::class, 'user_like');
     }
 
 }

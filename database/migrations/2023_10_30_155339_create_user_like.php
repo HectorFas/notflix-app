@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\Film;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('user_like', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('film_id')->references('id')->on('films'); 
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Film::class);
             $table->timestamps();
         });
     }

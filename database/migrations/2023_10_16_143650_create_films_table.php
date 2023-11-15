@@ -20,8 +20,6 @@ return new class extends Migration
             $table->unsignedBigInteger('price')->max(25);
             $table->string('image');
             $table->string('video');
-            $table->unsignedInteger('like_user_id');
-
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Models\Film;
+use Illuminate\Support\Facades\Auth;
 
 class FilmController extends Controller
 {
@@ -15,7 +16,7 @@ class FilmController extends Controller
     {
         $films = Film::all();
 
-        return view('films.index')->with('films', $films);
+        return view('films.index')->with('films', $films)->with('likes', Auth::user()->films);
     }
 
     /**
@@ -66,10 +67,17 @@ class FilmController extends Controller
         //
     }
 
+    public function ponerfav($filmid) {
+
+        Auth::user()->films()->attach($filmid);
+
+        return back();
+    }
+
     public function favourite() {
         $user = session()->get('user');
 
-        $favoruiteFilms = $user->films;
+        $favoruiteFilms = Auth::user()->films;
 
         return view('films.favourite')->with('favouriteFilms', $favoruiteFilms);
     }

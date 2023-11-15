@@ -24,8 +24,6 @@ class FilmFactory extends Factory
             'price' => $this->faker->randomFloat(2),
             'image' => $this->faker->imageUrl($width = 400, $height = 400),
             'video' => "/storage/video.mp4",
-            'like_user_id' => 0
-
         ];
     }
 }

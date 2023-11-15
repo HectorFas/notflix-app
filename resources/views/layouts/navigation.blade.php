@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('kbRyodqY5lbZG1yU')" :active="request()->routeIs('films.favourite')">
+                    <x-nav-link :href="route('films.favourite')" :active="request()->routeIs('films.favourite')">
                         {{ __('Favourite') }}
                     </x-nav-link>
                 </div>
