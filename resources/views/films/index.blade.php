@@ -1,5 +1,9 @@
 <x-app-layout>
-
+        <form action="/films/search" method="GET">
+            <label for="search">Search:</label>
+            <input type="text"  name="search" required>
+            <button type="submit">Search</button>
+        </form>
 
         <p>Estas son tus peliculas</p>
         @forelse ($films as $film)

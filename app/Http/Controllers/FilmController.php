@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
+use Illuminate\Http\Request;
 use App\Models\Film;
 use Illuminate\Support\Facades\Auth;
+
 
 class FilmController extends Controller
 {
@@ -80,5 +82,16 @@ class FilmController extends Controller
         $favoruiteFilms = Auth::user()->films;
 
         return view('films.favourite')->with('favouriteFilms', $favoruiteFilms);
+    }
+
+
+    public function search(Request $request) {
+
+        $search = $request->input('search');
+
+        $resultados = Film::where('title', 'like', '%' . $search . '%')->get();
+
+        return view('films.index')->with('films', $resultados)->with('likes', Auth::user()->films);
+
     }
 }
