@@ -69,7 +69,7 @@ class FilmController extends Controller
         //
     }
 
-    public function ponerfav($filmid) {
+    public function putFav($filmid) {
 
         Auth::user()->films()->attach($filmid);
 
