@@ -8,11 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\Film;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    public function dashboard() {
+
+        $films = Film::take(4)->get();
+
+        $latestFilms = Film::take(4)->orderBy('release_date', 'ASC')->get();
+
+        return view('dashboard')->with('films', $films)->with('latestFilms', $latestFilms);
+    }
 
     public function logIn(Request $request)
     {

@@ -1,14 +1,40 @@
 <x-app-layout>
 
-    <p>Estas son tus peliculas favoritas</p>
-    @forelse ($favouriteFilms as $film)
-        <div>
-            <p>{{$film->title}}</p>
-            <img src={{$film->image}} width=100/>
-            <svg width="64px" height="64px" viewBox="-9 -9 33.00 33.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.03553 1C1.80677 1 0 2.80677 0 5.03553C0 6.10582 0.42517 7.13228 1.18198 7.88909L7.14645 13.8536C7.34171 14.0488 7.65829 14.0488 7.85355 13.8536L13.818 7.88909C14.5748 7.13228 15 6.10582 15 5.03553C15 2.80677 13.1932 1 10.9645 1C9.89418 1 8.86772 1.42517 8.11091 2.18198L7.5 2.79289L6.88909 2.18198C6.13228 1.42517 5.10582 1 4.03553 1Z" fill="#ed333b"></path> </g></svg>
-        </div>
-    @empty
-        <p>Tenemos un problema con el servidor y no hay peliculas</p>
-    @endforelse
-
+    <div class="film-container">
+        @forelse ($favouriteFilms as $film)
+            <div class="film-item">
+                <p class="film-title">{{$film->title}}</p>
+                <div class="image-container">
+                    <img src="{{$film->image}}" alt="{{$film->title}}" style="max-width: 100%; max-height: 100%;">
+                </div>
+                <livewire:counter :filmid="$film->id"/>
+            </div>
+        @empty
+            <p>Tenemos un problema con el servidor y no hay peliculas</p>
+        @endforelse
+    </div>
 </x-app-layout>
+
+<style>
+    .film-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Ajusta este valor según tus necesidades de espacio entre las películas */
+        justify-content: center; /* Centra los elementos en el eje horizontal */
+    }
+
+    .film-item {
+        flex: 1 0 calc(25% - 20px); /* 25% para que haya 4 elementos por fila */
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Centra la imagen en el contenedor */
+    }
+
+    .film-title {
+        color: wheat;
+    }
+</style>
