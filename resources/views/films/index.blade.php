@@ -1,11 +1,10 @@
 <x-app-layout>
-    <div style="float: right; margin: 10px;">
-        <form action="/films/search" method="get">
-            <label class="text-white" for="search" style="font-size: 14px;">Search:</label>
-            <input type="text" name="search" required style="width: 150px; height: 25px; font-size: 14px;">
-            <button class="bg-purple-50 text-purple-500" type="submit" style="height: 25px;">Search</button>
-        </form>
-    </div>
+    {{-- <div style="float: right; margin: 10px;">
+        {{-- <form action="/films/search" method="get">
+            <input type="text" name="search" placeholder="Search" required style="width: 150px; height: 25px; font-size: 14px;">
+            <input type="submit" class="bg-purple-50 text-purple-500" value="Buscar" style="height: 25px;"><x-zondicon-search class="w-10 text-white"/>
+        </button>
+        </form> --}}
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">

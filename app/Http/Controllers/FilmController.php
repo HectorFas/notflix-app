@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFilmRequest;
+use App\Http\Requests\SearchFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -85,7 +86,7 @@ class FilmController extends Controller
     }
 
 
-    public function search(Request $request) {
+    public function search(SearchFilmRequest $request) {
 
         $search = $request->input('search');
 
