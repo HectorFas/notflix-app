@@ -87,12 +87,23 @@ class FilmController extends Controller
 
 
     public function search(SearchFilmRequest $request) {
+        $wereWeComeFrom =  url()->previous();
 
-        $search = $request->input('search');
+        if (str_contains($wereWeComeFrom, "favourite")) {
+            $search = $request->input('search');
 
-        $resultados = Film::where('title', 'like', '%' . $search . '%')->get();
+            $resultados = Auth::user()->films()->where('title', 'like', '%' . $search . '%')->get();
 
-        return view('films.index')->with('films', $resultados)->with('likes', Auth::user()->films);
+            return view('films.favourite')->with('favouriteFilms', $resultados);;
+        } else {
+
+            $search = $request->input('search');
+
+            $resultados = Film::where('title', 'like', '%' . $search . '%')->get();
+
+            return view('films.index')->with('films', $resultados)->with('likes', Auth::user()->films);
+
+        }
 
     }
 }

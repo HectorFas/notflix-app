@@ -34,7 +34,6 @@
                         <input name="search" type="search"
                             class="peer cursor-pointer relative text-white z-10 h-8 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text  focus:pl-16 focus:pr-4" />
                         <x-zondicon-search class="absolute inset-y-0 my-auto h-8 w-12 border-transparent stroke-gray-400 fill-gray-400 px-3.5 "/>
-
                     </form>
                 </div>
             </div>
