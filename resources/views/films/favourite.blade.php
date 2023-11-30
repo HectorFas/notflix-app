@@ -19,19 +19,19 @@
     .film-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px; /* Ajusta este valor según tus necesidades de espacio entre las películas */
-        justify-content: center; /* Centra los elementos en el eje horizontal */
+        gap: 20px;
+        justify-content: center;
     }
 
     .film-item {
-        flex: 1 0 calc(25% - 20px); /* 25% para que haya 4 elementos por fila */
+        flex: 1 0 calc(25% - 20px);
         box-sizing: border-box;
         text-align: center;
     }
 
     .image-container {
         display: flex;
-        justify-content: center; /* Centra la imagen en el contenedor */
+        justify-content: center;
     }
 
     .film-title {

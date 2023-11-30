@@ -94,6 +94,10 @@ class FilmController extends Controller
 
             $resultados = Auth::user()->films()->where('title', 'like', '%' . $search . '%')->get();
 
+            if (count($resultados) == 1) {
+                return view ('films.show')->with('film', $resultados[0]); //Primera posicion por que no sera una coleccion
+            };
+
             return view('films.favourite')->with('favouriteFilms', $resultados);;
         } else {
 
@@ -101,8 +105,11 @@ class FilmController extends Controller
 
             $resultados = Film::where('title', 'like', '%' . $search . '%')->get();
 
-            return view('films.index')->with('films', $resultados)->with('likes', Auth::user()->films);
+            if (count($resultados) == 1) {
+                return view ('films.show')->with('film', $resultados[0]); //Primera posicion por que no sera una coleccion
+            };
 
+            return view('films.index')->with('films', $resultados)->with('likes', Auth::user()->films);
         }
 
     }
