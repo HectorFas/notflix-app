@@ -1,0 +1,14 @@
+.toggle{
+    font-size: 30PX;
+    font-style: oblique;
+    align-self: auto;
+    background-color: antiquewhite;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    width: auto;
+}
+
+button{
+    color: brown;
+}
